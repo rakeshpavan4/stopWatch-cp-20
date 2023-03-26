@@ -20,13 +20,8 @@ class Stopwatch extends Component {
   }
 
   onStart = () => {
-    const {isTimerRunning} = this.state
+    this.intervalId = setInterval(this.incrementTimeElapsedInSeconds, 1000)
 
-    if (isTimerRunning) {
-      this.clearTimerInterval()
-    } else {
-      this.intervalId = setInterval(this.incrementTimeElapsedInSeconds, 1000)
-    }
     this.setState(prevState => ({isTimerRunning: !prevState.isTimerRunning}))
   }
 
